@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sheets To Do</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card hero">
+      <div>
+        <p class="eyebrow">Google Sheets synced</p>
+        <h1>To Do List</h1>
+        <p class="muted">Use the same GitHub Pages URL on your tablet and computer. Your tasks live in one Google Sheet.</p>
+      </div>
+      <button id="refreshButton" class="secondary-button" type="button">Refresh</button>
+    </section>
+
+    <section id="setupPanel" class="card setup-panel">
+      <h2>Connection</h2>
+      <p class="muted small">Paste your Google Apps Script Web App URL. This saves in this browser using ROT13 unless you hard-code the ROT13 value in <code>app.js</code>.</p>
+      <label>
+        Apps Script Web App URL
+        <input id="apiUrlInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" autocomplete="off" />
+      </label>
+      <label>
+        App key, optional
+        <input id="appKeyInput" type="password" placeholder="Only if you set APP_KEY in Code.gs" autocomplete="off" />
+      </label>
+      <div class="button-row">
+        <button id="saveSettingsButton" type="button">Save settings</button>
+        <button id="clearSettingsButton" class="secondary-button" type="button">Clear</button>
+      </div>
+    </section>
+
+    <section class="card composer">
+      <form id="todoForm">
+        <label class="sr-only" for="todoInput">New task</label>
+        <input id="todoInput" type="text" placeholder="Add a task…" maxlength="200" autocomplete="off" required />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="card list-card">
+      <div class="list-header">
+        <h2>Tasks</h2>
+        <p id="countText" class="muted small">Loading…</p>
+      </div>
+      <ul id="todoList" class="todo-list"></ul>
+      <p id="emptyState" class="empty-state" hidden>No tasks yet. Add one above.</p>
+    </section>
+
+    <p id="statusText" class="status" role="status" aria-live="polite"></p>
+  </main>
+
+  <template id="todoTemplate">
+    <li class="todo-item">
+      <label class="check-wrap">
+        <input class="todo-checkbox" type="checkbox" />
+        <span class="todo-text"></span>
+      </label>
+      <button class="delete-button" type="button" aria-label="Delete task">Delete</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
