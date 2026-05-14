@@ -4,7 +4,7 @@
 // Example: "https://script.google.com/macros/s/.../exec" becomes
 // "uggcf://fpevcg.tbbtyr.pbz/znpebf/f/.../rkrp".
 const CONFIG = {
-  API_URL_ROT13: "",
+  API_URL_ROT13: "uggcf://fpevcg.tbbtyr.pbz/znpebf/f/NXslpok9CmyJelaABofJse4U7k0hYLHeFlGvawLv58xVMK42gKZpwLctOM3HPTsg4xlSmrZT3N/rkrp",
   APP_KEY_ROT13: "" // Optional. Must match APP_KEY or APP_KEY_ROT13 in apps-script/Code.gs if you use one.
 };
 
